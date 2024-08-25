@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/system/default.nix
     ];
 
   # Bootloader.
@@ -82,9 +83,6 @@
     isNormalUser = true;
     description = "Syn";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
     shell = pkgs.zsh;
   };
 
@@ -96,9 +94,6 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Enable programs
-  programs.zsh.enable = true;
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   # nixpkgs.config.allowUnfree = true;
@@ -106,41 +101,11 @@
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "broadcom-sta"
-      "vmware-workstation"
     ];
 
   environment.sessionVariables = {
-    FLAKE = /home/syn/nixos;
+    FLAKE = "/home/syn/nixos";
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bat
-
-    vmware-workstation
-
-    home-manager
-
-    vim
-    vimPlugins.lazy-nvim
-    neovim
-
-    nh
-
-    git
-    lazygit
-
-    zsh-autosuggestions
-    zsh-fast-syntax-highlighting
-    nix-zsh-completions
-    zsh-powerlevel10k
-  #  wget
-  ];
-
-  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-
-  virtualisation.vmware.host.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
