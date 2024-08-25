@@ -4,10 +4,6 @@
   home.username = "syn";
   home.homeDirectory = "/home/syn";
 
-  home.pkgs = [
-
-  ];
-
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -24,5 +20,12 @@
   home.stateVersion = "24.05";
 
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "syn";
+    userEmail = "afishydeath@gmail.com";
+  };
+
 
 }

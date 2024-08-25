@@ -109,17 +109,36 @@
       "vmware-workstation"
     ];
 
+  environment.sessionVariables = {
+    FLAKE = /home/syn/nixos;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
+    bat
+
     vmware-workstation
+
     home-manager
+
+    vim
+    vimPlugins.lazy-nvim
     neovim
+
     nh
+
     git
+    lazygit
+
+    zsh-autosuggestions
+    zsh-fast-syntax-highlighting
+    nix-zsh-completions
+    zsh-powerlevel10k
   #  wget
   ];
+
+  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
 
   virtualisation.vmware.host.enable = true;
 
