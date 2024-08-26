@@ -18,6 +18,8 @@
       eza
       thefuck
       starship
+      xclip
+      wl-clipboard-rs
     ];
 
     programs.zsh = {
