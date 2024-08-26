@@ -6,16 +6,12 @@
   };
 
   config = lib.mkIf config.vms.enable {
+
     environment.systemPackages = with pkgs; [
       vmware-workstation
     ];
 
     virtualisation.vmware.host.enable = true;
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        # Add additional package names here
-        "vmware-workstation"
-      ];
 
   };
 

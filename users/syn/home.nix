@@ -27,5 +27,20 @@
     userEmail = "afishydeath@gmail.com";
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = {
+      ls = "exa -lh --icons";
+      la = "ls -a";
+      v = "lvim";
+      gg = "lazygit";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" "starship" ];
+      theme = "starship";
+    };
+  };
 
 }

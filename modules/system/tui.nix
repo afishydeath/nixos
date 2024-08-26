@@ -15,14 +15,15 @@
       nh
       git
       lazygit
-      zsh-powerlevel10k
+      eza
+      thefuck
+      starship
     ];
-    
+
     programs.zsh = {
       enable = true;
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     };
-
+    
   };
 
 }

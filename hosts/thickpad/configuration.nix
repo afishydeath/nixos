@@ -101,6 +101,11 @@
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "broadcom-sta"
+      "vmware-workstation"
+      "steam"
+      "steam-original"
+      "steam-run"
+      "obsidian"
     ];
 
   environment.sessionVariables = {
