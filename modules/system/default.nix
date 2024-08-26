@@ -12,8 +12,4 @@
   vms.enable = lib.mkDefault true;
   gaming.enable = lib.mkDefault true;
 
-  environment.variables = {
-    FLAKE = "/home/syn/nixos";
-  };
-
 }
