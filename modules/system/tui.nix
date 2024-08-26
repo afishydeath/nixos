@@ -22,6 +22,11 @@
       wl-clipboard-rs
     ];
 
+    programs.zoxide = {
+      enable = true;
+      enableZshIntergration = true;
+    };
+
     programs.zsh = {
       enable = true;
     };
