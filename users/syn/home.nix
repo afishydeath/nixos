@@ -5,7 +5,8 @@
   home.homeDirectory = "/home/syn";
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "v";
+    FLAKE = "/home/syn/nixos";
   };
 
   home.file = {
