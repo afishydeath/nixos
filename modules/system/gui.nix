@@ -10,6 +10,7 @@
       baobab
       signal-desktop
       obsidian
+      sgt-puzzles
     ];
     
     programs.firefox.enable = true;
