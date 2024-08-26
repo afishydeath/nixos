@@ -36,6 +36,7 @@
       la = "ls -a";
       v = "lvim";
       gg = "lazygit";
+      cd = "z";
     };
     oh-my-zsh = {
       enable = true;
