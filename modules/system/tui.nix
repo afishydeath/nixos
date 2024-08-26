@@ -20,7 +20,7 @@
       starship
       xclip
       wl-clipboard-rs
-      gem
+      ruby
     ];
 
     programs.zsh = {
