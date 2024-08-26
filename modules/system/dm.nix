@@ -16,7 +16,7 @@
     services.displayManager.autoLogin.user = "syn";
 
     environment.systemPackages = with pkgs; [
-      gkrellm
+      gnomeExtensions.lock-keys
     ];
 
   };
