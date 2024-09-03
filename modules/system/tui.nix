@@ -20,6 +20,7 @@
       starship
       xclip
       wl-clipboard-rs
+      bottom
     ];
 
     programs.zsh = {

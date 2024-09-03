@@ -11,6 +11,8 @@
       signal-desktop
       obsidian
       sgt-puzzles
+      vial
+      vlc
     ];
     
     programs.firefox.enable = true;
