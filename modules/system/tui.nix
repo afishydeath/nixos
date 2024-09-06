@@ -21,6 +21,8 @@
       xclip
       wl-clipboard-rs
       bottom
+      ghc
+      haskell-language-server
     ];
 
     programs.zsh = {

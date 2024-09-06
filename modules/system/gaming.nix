@@ -10,6 +10,11 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-vaapi-driver
+        libvdpau-va-gl
+      ];
     };
     programs.steam.enable = true;
     programs.steam.gamescopeSession.enable = true;
@@ -18,12 +23,13 @@
     environment.systemPackages = with pkgs; [
       mangohud
       protonup
+      lutris
+      bottles
     ];
 
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS =
         "\${HOME}/.steam/root/compatibilitytools.d";
     };
-    services.xserver.videoDrivers = [ "ati" ];
   };
 }
