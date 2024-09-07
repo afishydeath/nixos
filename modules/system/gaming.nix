@@ -6,6 +6,9 @@
   };
 
   config = lib.mkIf config.gaming.enable {
+    nixpkgs.config.packageOverrides = pkgs: {
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+    };
     hardware.opengl = {
       enable = true;
       driSupport = true;

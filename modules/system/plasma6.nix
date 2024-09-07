@@ -2,22 +2,24 @@
 
 {
   options = {
-    dm.enable = lib.mkEnableOption "enable window manager";
+    plasma6.enable = lib.mkEnableOption "enable window manager";
   };
 
-  config = lib.mkIf config.dm.enable {
+  config = lib.mkIf config.plasma6.enable {
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      desktopManager.plasma6.enable = true;
     };
 
     # Enable automatic login for the user.
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "syn";
+    # setup pam for kwallet
+    security.pam.services.login.enableKwallet = true;
 
     environment.systemPackages = with pkgs; [
-      gnomeExtensions.lock-keys
+      kwallet-pam
     ];
 
   };
