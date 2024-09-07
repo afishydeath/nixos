@@ -2,25 +2,22 @@
 
 {
   options = {
-    plasma6.enable = lib.mkEnableOption "enable window manager";
+    hyprland.enable = lib.mkEnableOption "enable window manager";
   };
 
-  config = lib.mkIf config.plasma6.enable {
+  config = lib.mkIf config.hyprland.enable {
     services.xserver = {
       enable = true;
-      # displayManager.gdm.enable = true;
-      desktopManager.plasma6.enable = true;
     };
+    programs.hyprland.enable = true;
 
     services.displayManager.sddm.enable = true;
     # Enable automatic login for the user.
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "syn";
-    # setup pam for kwallet
-    security.pam.services.login.enableKwallet = true;
 
     environment.systemPackages = with pkgs; [
-      kwallet-pam
+      # programs?
     ];
 
   };
