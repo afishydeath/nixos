@@ -14,8 +14,8 @@
   gui.enable = lib.mkDefault true;
   vms.enable = lib.mkDefault true;
   gaming.enable = lib.mkDefault true;
-  plasma6.enable = lib.mkDefault false;
+  plasma6.enable = lib.mkDefault true;
   gnome.enable = lib.mkDefault false;
-  hyprland.enable = lib.mkDefault true;
+  hyprland.enable = lib.mkDefault false;
 
 }

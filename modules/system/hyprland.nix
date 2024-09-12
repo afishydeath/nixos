@@ -17,7 +17,7 @@
     services.displayManager.autoLogin.user = "syn";
 
     environment.systemPackages = with pkgs; [
-      # programs?
+      kitty
     ];
 
   };
