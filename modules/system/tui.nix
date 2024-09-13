@@ -29,6 +29,8 @@
       enable = true;
     };
 
+    programs.ssh.startAgent = true;
+
     programs.nh.flake = /home/syn/nixos;
     
   };
