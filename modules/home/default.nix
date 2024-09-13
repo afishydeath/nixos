@@ -6,7 +6,7 @@
     ./tui.nix
   ];
   
-  colorScheme = inputs.nix-colors.colorSchemes.everforest;
+  colorScheme = inputs.nix-colors.colorSchemes.${inputs.theme};
   
   tui.enable = lib.mkDefault true;
 

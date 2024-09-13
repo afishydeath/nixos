@@ -17,24 +17,34 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
 
   let
-    system = "x86_64-linux";
+    systemSettings = {
+      system = "x86_64-linux";
+      hostname = "thickpad";
+      timezone = "Australia/Sydney";
+    };
+    userSettings = {
+      username = "syn";
+      email = "afishydeath@gmail.com";
+      theme = "everforest";
+    };
     
-    pkgs = import nixpkgs { inherit system; };
+    pkgs = import nixpkgs { system = systemSettings.system; };
   in
   {
     nixosConfigurations = {
       thickpad = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
+        specialArgs = { system = systemSettings.system; inherit systemSettings; };
         modules = [
-          ./hosts/thickpad/configuration.nix
+          # ./hosts/thickpad/configuration.nix
           # ./modules/system/default.nix
+          ./hosts/default.nix
         ];
       };
     };
     homeConfigurations = {
       syn = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
+        extraSpecialArgs = {inherit inputs; inherit userSettings;};
         modules = [./users/syn/home.nix];
       };
     };

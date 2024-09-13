@@ -16,6 +16,8 @@
       plugins.lightline.enable = true;
       plugins.which-key.enable = true;
 
+      colorschemes.${inputs.theme}.enable = true;
+
     };
   };
 
