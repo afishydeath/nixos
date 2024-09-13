@@ -8,7 +8,6 @@
 
   home.username = "syn";
   home.homeDirectory = "/home/syn";
-  home.sessionVariables.FLAKE = "/home/syn/nixos";
 
   home.stateVersion = "24.05";
 

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 
 {
   options = {
@@ -6,38 +6,21 @@
   };
 
   config = lib.mkIf config.tui.enable {
+    imports = [
+      ./tui/git.nix
+      ./tui/zsh.nix
+    ];
+
+
     home.sessionVariables = {
       EDITOR = "v";
     };
 
-    programs.git = {
-      enable = true;
-      userName = "syn";
-      userEmail = "afishydeath@gmail.com";
-      extraConfig = {
-        credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-      };
-    };
+    git.enable = lib.mkDefault true;
+    zsh.enable = lib.mkDefault true;
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      shellAliases = {
-        ls = "exa -lh --icons";
-        la = "ls -a";
-        v = "lvim";
-        gg = "lazygit";
-        cd = "z";
-      };
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" "thefuck" "starship" ];
-        theme = "starship";
-      };
-    };
 
+    # too small for their own file
     programs.zoxide = {
       enable = true;
       enableZshIntegration = true;

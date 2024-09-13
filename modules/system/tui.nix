@@ -28,6 +28,8 @@
     programs.zsh = {
       enable = true;
     };
+
+    programs.nh.flake = /home/syn/nixos;
     
   };
 

@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager }@inputs:
 
   let
     system = "x86_64-linux";
@@ -29,6 +30,7 @@
     homeConfigurations = {
       syn = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = {inherit inputs;};
         modules = [./users/syn/home.nix];
       };
     };

@@ -1,9 +1,12 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 
 {
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     ./tui.nix
   ];
+  
+  colorScheme = inputs.nix-colors.colorSchemes.everforest-dark;
   
   tui.enable = lib.mkDefault true;
 
