@@ -8,14 +8,16 @@
     ./plasma6.nix
     ./gnome.nix
     ./hyprland.nix
+    ./nixos.nix
   ];
   
-  tui.enable = lib.mkDefault true;
-  gui.enable = lib.mkDefault true;
-  vms.enable = lib.mkDefault true;
-  gaming.enable = lib.mkDefault true;
-  plasma6.enable = lib.mkDefault true;
+  tui.enable = lib.mkDefault false;
+  gui.enable = lib.mkDefault false;
+  vms.enable = lib.mkDefault false;
+  gaming.enable = lib.mkDefault false;
+  plasma6.enable = lib.mkDefault false;
   gnome.enable = lib.mkDefault false;
   hyprland.enable = lib.mkDefault false;
+  nixos.enable = lib.mkDefault false;
 
 }
