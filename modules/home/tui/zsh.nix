@@ -2,7 +2,7 @@
 
 {
   options = {
-    git.enable = lib.mkEnableOption "zsh config enable";
+    zsh.enable = lib.mkEnableOption "zsh config enable";
   };
 
   config = lib.mkIf config.zsh.enable {

@@ -1,16 +1,16 @@
 { lib, config, ... }:
 
 {
+  imports = [
+    ./tui/git.nix
+    ./tui/zsh.nix
+  ];
+
   options = {
     tui.enable = lib.mkEnableOption "tui config enable";
   };
 
   config = lib.mkIf config.tui.enable {
-    imports = [
-      ./tui/git.nix
-      ./tui/zsh.nix
-    ];
-
 
     home.sessionVariables = {
       EDITOR = "v";
