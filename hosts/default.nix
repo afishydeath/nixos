@@ -6,6 +6,7 @@
   ];
 
   networking.hostName = "${systemSettings.hostname}";
+  networking.networkmanager.enable = true;
   
   time.timeZone = "${systemSettings.timezone}";
 
