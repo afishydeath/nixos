@@ -12,7 +12,6 @@
       vim
       lunarvim
       nerdfonts
-      nh
       git
       lazygit
       eza
@@ -23,6 +22,7 @@
       bottom
       ghc
       haskell-language-server
+      gnumake
     ];
 
     programs.zsh = {
@@ -31,8 +31,10 @@
 
     programs.ssh.startAgent = true;
 
-    programs.nh.flake = /home/syn/nixos;
-    
+    programs.nh = {
+      enable = true;
+      flake = "/home/syn/nixos";
+    };
   };
 
 }

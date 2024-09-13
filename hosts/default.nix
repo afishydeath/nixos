@@ -1,4 +1,4 @@
-{ systemSettings, ... }:
+{ systemSettings, lib, ... }:
 
 {
   imports = [
@@ -10,7 +10,7 @@
   time.timeZone = "${systemSettings.timezone}";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_AU.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
@@ -23,6 +23,20 @@
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
   };
+
+  
+
+  # allow unfree
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "vmware-workstation"
+      "steam"
+      "steam-original"
+      "steam-run"
+      "obsidian"
+      "broadcom-sta"
+    ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

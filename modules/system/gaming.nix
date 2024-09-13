@@ -35,13 +35,5 @@
         "\${HOME}/.steam/root/compatibilitytools.d";
     };
 
-    # allow unfree
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        # Add additional package names here
-        "steam"
-        "steam-original"
-        "steam-run"
-      ];
   };
 }
