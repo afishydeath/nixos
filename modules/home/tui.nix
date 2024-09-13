@@ -4,6 +4,7 @@
   imports = [
     ./tui/git.nix
     ./tui/zsh.nix
+    ./tui/nixvim.nix
   ];
 
   options = {
@@ -18,6 +19,7 @@
 
     git.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
+    nixvim.enable = true;
 
 
     # too small for their own file
