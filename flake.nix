@@ -11,10 +11,10 @@
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.05";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
 
   let
     systemSettings = {
@@ -25,7 +25,11 @@
     userSettings = {
       username = "syn";
       email = "afishydeath@gmail.com";
-      wallpaper = ./wallpapers/pixel_galaxy.png;
+      stylixSettings = {
+        enable = true;
+        image = ./wallpapers/pixel_galaxy.png;
+        polarity = "dark";
+      };
     };
     
     pkgs = import nixpkgs { system = systemSettings.system; };
@@ -43,10 +47,10 @@
       };
     };
     homeConfigurations = {
-      syn = home-manager.lib.homeManagerConfiguration {
+      ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs; inherit userSettings;};
-        modules = [./users/syn/home.nix];
+        modules = [ stylix.homeManagerModules.stylix ./users/default.nix];
       };
     };
   };

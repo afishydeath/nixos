@@ -17,7 +17,20 @@
   gaming.enable = true;
   gui.enable = true;
   vms.enable = true;
-  gnome.enable = true;
+  plasma6.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:2:0:0";
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.syn = {

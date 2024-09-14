@@ -1,4 +1,4 @@
-{ lib, ... } :
+{ lib, userSettings, ... } :
 {
   imports = [
     ./tui.nix
@@ -20,4 +20,5 @@
   hyprland.enable = lib.mkDefault false;
   nixos.enable = lib.mkDefault false;
 
+  stylix = userSettings.stylixSettings;
 }

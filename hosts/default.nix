@@ -1,4 +1,4 @@
-{ systemSettings, userSettings, lib, ... }:
+{ systemSettings, lib, ... }:
 
 {
   imports = [
@@ -25,9 +25,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  stylix.enable = true;
-  stylix.image = userSettings.wallpaper;  
-
   # allow unfree
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -38,6 +35,8 @@
       "steam-run"
       "obsidian"
       "broadcom-sta"
+      "nvidia-x11"
+      "nvidia-settings"
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
