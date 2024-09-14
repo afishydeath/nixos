@@ -28,7 +28,8 @@
       stylixSettings = {
         enable = true;
         image = ./wallpapers/pixel_galaxy.png;
-        polarity = "dark";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
+        # polarity = "dark";
       };
     };
     
@@ -49,7 +50,7 @@
     homeConfigurations = {
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs; inherit userSettings;};
+        extraSpecialArgs = {inherit inputs; inherit userSettings; };
         modules = [ stylix.homeManagerModules.stylix ./users/default.nix];
       };
     };

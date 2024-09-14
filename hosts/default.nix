@@ -4,7 +4,7 @@
   imports = [
     ./${systemSettings.hostname}/configuration.nix
   ];
-
+  
   networking.hostName = "${systemSettings.hostname}";
   networking.networkmanager.enable = true;
   

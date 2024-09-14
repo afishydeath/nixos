@@ -17,7 +17,7 @@
   gaming.enable = true;
   gui.enable = true;
   vms.enable = true;
-  plasma6.enable = true;
+  gnome.enable = true;
 
   hardware.opengl = {
     enable = true;

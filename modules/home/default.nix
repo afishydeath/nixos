@@ -5,7 +5,7 @@
     ./tui.nix
     ./gui.nix
   ];
-  
+ 
   tui.enable = lib.mkDefault false;
   gui.enable = lib.mkDefault false;
 
