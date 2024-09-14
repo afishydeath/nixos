@@ -19,7 +19,7 @@
   let
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "lenowo";
+      hostname = import ./hostname.nix;
       timezone = "Australia/Sydney";
     };
     userSettings = {
