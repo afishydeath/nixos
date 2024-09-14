@@ -1,4 +1,4 @@
-{ systemSettings, lib, ... }:
+{ systemSettings, userSettings, lib, ... }:
 
 {
   imports = [
@@ -25,7 +25,8 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  
+  stylix.enable = true;
+  stylix.image = userSettings.wallpaper;  
 
   # allow unfree
   nixpkgs.config.allowUnfreePredicate = pkg:

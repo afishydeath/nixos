@@ -25,7 +25,7 @@
     userSettings = {
       username = "syn";
       email = "afishydeath@gmail.com";
-      theme = "everforest";
+      wallpaper = ./wallpapers/pixel_galaxy.png;
     };
     
     pkgs = import nixpkgs { system = systemSettings.system; };
@@ -33,7 +33,7 @@
   {
     nixosConfigurations = {
       ${systemSettings.hostname}= nixpkgs.lib.nixosSystem {
-        specialArgs = { system = systemSettings.system; inherit systemSettings; };
+        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings };
         modules = [
           # ./hosts/thickpad/configuration.nix
           # ./modules/system/default.nix
