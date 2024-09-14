@@ -46,16 +46,14 @@
   {
     nixosConfigurations = {
       thickpad = nixpkgs.lib.nixosSystem {
-        systemSettings.hostname = "thickpad";
-        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; };
+        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; hostname = "thickpad"; };
         modules = [
           ./hosts/default.nix
           stylix.nixosModules.stylix
         ];
       };
       lenowo = nixpkgs.lib.nixosSystem {
-        systemSettings.hostname = "lenowo";
-        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; };
+        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; hostname = "lenowo"; };
         modules = [
           ./hosts/default.nix
           stylix.nixosModules.stylix

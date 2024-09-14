@@ -1,11 +1,11 @@
-{ systemSettings, lib, ... }:
+{ systemSettings, hostname, lib, ... }:
 
 {
   imports = [
-    ./${systemSettings.hostname}/configuration.nix
+    ./${hostname}/configuration.nix
   ];
   
-  networking.hostName = "${systemSettings.hostname}";
+  networking.hostName = "${hostname}";
   networking.networkmanager.enable = true;
   
   time.timeZone = "${systemSettings.timezone}";
