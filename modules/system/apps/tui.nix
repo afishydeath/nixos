@@ -11,7 +11,6 @@
       home-manager
       vim
       lunarvim
-      nerdfonts
       git
       lazygit
       eza

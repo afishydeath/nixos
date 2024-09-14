@@ -29,7 +29,16 @@
         enable = true;
         image = ./wallpapers/pixel_galaxy.png;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
-        # polarity = "dark";
+        fonts = {
+          sansSerif = {
+            package = pkgs.fira-code-nerdfont;
+            name = "Fira Code Nerd Font";
+          };
+          monospace = {
+            package = pkgs.fira-code-nerdfont;
+            name = "Fira Code Nerd Font Mono";
+          };
+        };
       };
     };
     
