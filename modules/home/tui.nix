@@ -5,6 +5,7 @@
     ./tui/git.nix
     ./tui/zsh.nix
     ./tui/nixvim.nix
+    ./tui/nix-direnv.nix
   ];
 
   options = {
@@ -19,7 +20,8 @@
 
     git.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
-    nixvim.enable = true;
+    nixvim.enable = lib.mkDefault true;
+    nix-direnv.enable = lib.mkDefault true;
 
 
     # too small for their own file

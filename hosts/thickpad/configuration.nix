@@ -18,7 +18,7 @@
   gui.enable = true;
   vms.enable = true;
   
-  sddm.enable = true;
+  gdm.enable = true;
   plasma6.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
