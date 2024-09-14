@@ -17,6 +17,8 @@
   gaming.enable = true;
   gui.enable = true;
   vms.enable = true;
+  
+  gdm.enable = true;
   gnome.enable = true;
 
   hardware.opengl = {
