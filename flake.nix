@@ -7,11 +7,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -19,7 +19,7 @@
   let
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "thickpad";
+      hostname = "lenowo";
       timezone = "Australia/Sydney";
     };
     userSettings = {
@@ -32,12 +32,13 @@
   in
   {
     nixosConfigurations = {
-      thickpad = nixpkgs.lib.nixosSystem {
+      ${systemSettings.hostname}= nixpkgs.lib.nixosSystem {
         specialArgs = { system = systemSettings.system; inherit systemSettings; };
         modules = [
           # ./hosts/thickpad/configuration.nix
           # ./modules/system/default.nix
           ./hosts/default.nix
+          stylix.nixosModules.stylix
         ];
       };
     };
