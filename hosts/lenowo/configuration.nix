@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -18,8 +18,8 @@
   gui.enable = true;
   vms.enable = true;
   
-  gdm.enable = true;
-  gnome.enable = true;
+  sddm.enable = true;
+  plasma6.enable = true;
 
   hardware.opengl = {
     enable = true;
