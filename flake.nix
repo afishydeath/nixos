@@ -19,7 +19,7 @@
   let
     systemSettings = {
       system = "x86_64-linux";
-      hostname = import ./hostname.nix;
+      hostname = "thickpad";
       timezone = "Australia/Sydney";
     };
     userSettings = {
