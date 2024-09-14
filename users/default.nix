@@ -9,7 +9,7 @@
 
   home = {
     username = userSettings.username;
-    homeDirecroty = "/home/${userSettings.username}";
+    homeDirectory = "/home/${userSettings.username}";
     stateVersion = "24.05";
   };
 }
