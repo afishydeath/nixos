@@ -19,7 +19,6 @@
   let
     systemSettings = {
       system = "x86_64-linux";
-      hostname = "thickpad";
       timezone = "Australia/Sydney";
     };
     userSettings = {
@@ -46,11 +45,18 @@
   in
   {
     nixosConfigurations = {
-      ${systemSettings.hostname}= nixpkgs.lib.nixosSystem {
+      thickpad = nixpkgs.lib.nixosSystem {
+        systemSettings.hostname = "thickpad";
         specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; };
         modules = [
-          # ./hosts/thickpad/configuration.nix
-          # ./modules/system/default.nix
+          ./hosts/default.nix
+          stylix.nixosModules.stylix
+        ];
+      };
+      lenowo = nixpkgs.lib.nixosSystem {
+        systemSettings.hostname = "lenowo";
+        specialArgs = { system = systemSettings.system; inherit systemSettings; inherit userSettings; };
+        modules = [
           ./hosts/default.nix
           stylix.nixosModules.stylix
         ];
