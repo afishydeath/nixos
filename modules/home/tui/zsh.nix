@@ -20,7 +20,7 @@
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" "starship" ];
+        plugins = [ "git" "thefuck" "starship" "direnv" ];
         theme = "starship";
       };
     };

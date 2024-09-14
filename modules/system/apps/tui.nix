@@ -17,9 +17,8 @@
       thefuck
       starship
       bottom
-      ghc
-      haskell-language-server
       gnumake
+      glow
     ];
 
     programs.zsh = {
