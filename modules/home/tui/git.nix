@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 {
   options = {
@@ -10,11 +10,6 @@
       enable = true;
       userName = "syn";
       userEmail = "afishydeath@gmail.com";
-      extraConfig = {
-        credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-      };
     };
   };
 }

@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, userSettings, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
     ./tui.nix
   ];
   
-  colorScheme = inputs.nix-colors.colorSchemes.${inputs.theme};
+  colorScheme = inputs.nix-colors.colorSchemes.${userSettings.theme};
   
   tui.enable = lib.mkDefault true;
 

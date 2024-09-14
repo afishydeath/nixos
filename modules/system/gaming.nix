@@ -6,19 +6,6 @@
   };
 
   config = lib.mkIf config.gaming.enable {
-    nixpkgs.config.packageOverrides = pkgs: {
-      intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-    };
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        intel-vaapi-driver
-        libvdpau-va-gl
-      ];
-    };
     programs.steam.enable = true;
     programs.steam.gamescopeSession.enable = true;
     programs.gamemode.enable = true;

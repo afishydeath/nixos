@@ -1,4 +1,4 @@
-{ lib, inputs, config, ... }:
+{ lib, inputs, config, userSettings, pkgs, ... }:
 
 {
   imports = [
@@ -16,8 +16,10 @@
       plugins.lightline.enable = true;
       plugins.which-key.enable = true;
 
-      colorschemes.${inputs.theme}.enable = true;
-
+      extraPlugins = with pkgs; [
+        vimPlugins.${userSettings.theme}
+      ];
+      colorscheme = "${userSettings.theme}";
     };
   };
 
