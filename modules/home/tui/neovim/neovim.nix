@@ -8,9 +8,8 @@
     neovim.enable = lib.mkEnableOption "enable home/tui/neovim config";
   };
 
-  nixvim.enable = lib.mkDefault config.neovim.enable;
 
-  config = lib.mIf config.neovim.enable {
-    # something
+  config = lib.mkIf config.neovim.enable {
+    nixvim.enable = lib.mkDefault true;
   };
 }

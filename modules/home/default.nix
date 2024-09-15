@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./tui.nix
+    ./tui/tui.nix
     ./gui.nix
   ];
  
