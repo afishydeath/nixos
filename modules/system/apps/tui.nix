@@ -18,7 +18,7 @@
       starship
       bottom
       gnumake
-      glow
+      mdr
     ];
 
     programs.zsh = {
