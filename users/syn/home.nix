@@ -6,7 +6,7 @@
     ../../modules/home/default.nix
   ];
 
-  tui.enable = true;
-  gui.enable = true;
+  home.tui.enable = true;
+  home.gui.enable = true;
 
 }

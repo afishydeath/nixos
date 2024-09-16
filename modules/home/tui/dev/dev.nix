@@ -8,7 +8,7 @@
     home.tui.dev.enable = lib.mkEnableOption "enable home/tui/dev config";
   };
 
-  config.tui.dev = lib.mkIf config.dev.enable {
+  config.home.tui.dev = lib.mkIf config.home.tui.dev.enable {
     git.enable = lib.mkDefault true;
   };
 }

@@ -5,7 +5,7 @@
     home.gui.enable = lib.mkEnableOption "enable gui apps";
   };
 
-  config = lib.mkIf config.gui.enable {
+  config = lib.mkIf config.home.gui.enable {
     programs.kitty.enable = true;
   };
 }

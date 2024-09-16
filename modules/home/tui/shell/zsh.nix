@@ -5,7 +5,7 @@
     home.tui.shell.zsh.enable = lib.mkEnableOption "zsh config enable";
   };
 
-  config = lib.mkIf config.home.tui.zsh.enable {
+  config = lib.mkIf config.home.tui.shell.zsh.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
