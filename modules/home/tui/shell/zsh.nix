@@ -2,10 +2,10 @@
 
 {
   options = {
-    zsh.enable = lib.mkEnableOption "zsh config enable";
+    home.tui.shell.zsh.enable = lib.mkEnableOption "zsh config enable";
   };
 
-  config = lib.mkIf config.zsh.enable {
+  config = lib.mkIf config.home.tui.zsh.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;

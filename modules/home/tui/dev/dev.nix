@@ -5,10 +5,10 @@
     ./git.nix
   ];
   options = {
-    dev.enable = lib.mkEnableOption "enable home/tui/dev config";
+    home.tui.dev.enable = lib.mkEnableOption "enable home/tui/dev config";
   };
 
-  config = lib.mkIf config.dev.enable {
+  config.tui.dev = lib.mkIf config.dev.enable {
     git.enable = lib.mkDefault true;
   };
 }

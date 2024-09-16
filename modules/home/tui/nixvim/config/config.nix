@@ -2,12 +2,13 @@
 
 {
   options = {
-    config.enable = lib.mkEnableOption "enable config";
+    home.tui.nixvim.config.enable = lib.mkEnableOption "enable config";
   };
 
-  config = lib.mkIf config.config.enable {
+  config = lib.mkIf config.home.tui.nixvim.config.enable {
     programs.nixvim = {
       opts = import ./opts.nix;
+      globals = import ./globals.nix;
     };
   };
 

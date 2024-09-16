@@ -27,9 +27,9 @@
   ## preserve indent where possible
   preserveindent = true;
   ## spaces to tabs
-  shiftwidth = 2;
-  tabstop = 2;
-  softtabstop = 2;
+  shiftwidth = 4;
+  tabstop = 4;
+  softtabstop = 4;
 
   # searching
   ## searching is case insensitive unless caps in search or \C
@@ -44,9 +44,9 @@
   ## display whitespace
   list = true;
   ### map how to display whitespace
-  listchars = ",nbsp:⎵,trail:·";
-  ### show tab line
-  showtabline = 2;
+  listchars.__raw = "{ tab = '▏ ', lead = '_' ,  nbsp = '⎵', trail = '·' }";
+  ### show tabs at the top
+  showtabline = 1;
   ## show the line the cursor is on
   cursorline = true;
   ## minimum lines of code to show when scrolling

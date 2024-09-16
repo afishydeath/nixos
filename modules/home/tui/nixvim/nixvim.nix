@@ -3,18 +3,20 @@
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    # ./plugins/plugins.nix
+    ./plugins/plugins.nix
     ./config/config.nix
   ];
 
   options = {
-    nixvim.enable = lib.mkEnableOption "enable nixvim";
+    home.tui.nixvim.enable = lib.mkEnableOption "enable nixvim";
   };
 
 
-  config = lib.mkIf config.nixvim.enable {
-    # plugins.enable = lib.mkDefault true;
-    config.enable = lib.mkDefault true;
+  config = lib.mkIf config.home.tui.nixvim.enable {
+    home.tui.nixvim = {
+      plugins.enable = lib.mkDefault true;
+      config.enable = lib.mkDefault true;
+    };
 
     programs.nixvim = {
       enable = true;

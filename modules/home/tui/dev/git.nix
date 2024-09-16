@@ -2,7 +2,7 @@
 
 {
   options = {
-    git.enable = lib.mkEnableOption "git config enable";
+    home.tui.dev.git.enable = lib.mkEnableOption "git config enable";
   };
 
   config = lib.mkIf config.git.enable {

@@ -8,11 +8,11 @@
   ];
 
   options = {
-    tui.enable = lib.mkEnableOption "tui config enable";
+    home.tui.enable = lib.mkEnableOption "tui config enable";
   };
 
 
-  config = lib.mkIf config.tui.enable {
+  config.home.tui = lib.mkIf config.tui.enable {
     dev.enable = lib.mkDefault true;
     nixvim.enable = lib.mkDefault true;
     shell.enable = lib.mkDefault true;

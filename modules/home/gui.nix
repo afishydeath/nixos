@@ -2,7 +2,7 @@
 
 {
   options = {
-    gui.enable = lib.mkEnableOption "enable gui apps";
+    home.gui.enable = lib.mkEnableOption "enable gui apps";
   };
 
   config = lib.mkIf config.gui.enable {

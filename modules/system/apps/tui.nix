@@ -21,6 +21,7 @@
       mdr
       xsel
       wl-clipboard-rs
+      ripgrep
     ];
 
     programs.zsh = {
