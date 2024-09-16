@@ -3,7 +3,8 @@
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./plugins/plugins.nix
+    # ./plugins/plugins.nix
+    ./config/config.nix
   ];
 
   options = {
@@ -12,7 +13,8 @@
 
 
   config = lib.mkIf config.nixvim.enable {
-    plugins.enable = lib.mkDefault true;
+    # plugins.enable = lib.mkDefault true;
+    config.enable = lib.mkDefault true;
 
     programs.nixvim = {
       enable = true;

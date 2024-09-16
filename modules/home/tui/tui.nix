@@ -3,7 +3,7 @@
 {
   imports = [
     ./dev/dev.nix
-    ./neovim/neovim.nix
+    ./nixvim/nixvim.nix
     ./shell/shell.nix
   ];
 
@@ -14,7 +14,7 @@
 
   config = lib.mkIf config.tui.enable {
     dev.enable = lib.mkDefault true;
-    neovim.enable = lib.mkDefault true;
+    nixvim.enable = lib.mkDefault true;
     shell.enable = lib.mkDefault true;
   };
 
