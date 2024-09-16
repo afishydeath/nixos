@@ -17,74 +17,19 @@
     stylix.url = "github:danth/stylix/release-24.05";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, ... }@inputs:
-
-  let
-    systemSettings = {
-      system = "x86_64-linux";
-      timezone = "Australia/Sydney";
-    };
-    userSettings = {
-      username = "syn";
-      email = "afishydeath@gmail.com";
-      stylixSettings = {
-        enable = true;
-        image = ./wallpapers/pixel_galaxy.png;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/heetch.yaml";
-        fonts = {
-          sansSerif = {
-            package = pkgs.fira-code-nerdfont;
-            name = "Fira Code Nerd Font";
-          };
-          monospace = {
-            package = pkgs.fira-code-nerdfont;
-            name = "Fira Code Nerd Font Mono";
-          };
-        };
-      };
-    };
-    
-    pkgs = import nixpkgs { system = systemSettings.system; };
-    pkgs-unstable = import nixpkgs-unstable { system = systemSettings.system; };
-
+  outputs = { ... }@inputs: let
+    myLib = import ./myLib/default.nix {inherit inputs;};
   in
-  {
-    nixosConfigurations = {
-      thickpad = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          system = systemSettings.system;
-          inherit systemSettings;
-          inherit userSettings;
-          hostname = "thickpad"; 
-        };
-        modules = [
-          ./hosts/default.nix
-          stylix.nixosModules.stylix
-        ];
+    with myLib; {
+      nixosConfigurations = {
+        thickpad = mkSystem ./hosts/thickpad/configuration.nix;
+        lenowo = mkSystem ./hosts/lenowo/configuration.nix;
       };
-      lenowo = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          system = systemSettings.system;
-          inherit systemSettings;
-          inherit userSettings;
-          hostname = "lenowo";
-        };
-        modules = [
-          ./hosts/default.nix
-          stylix.nixosModules.stylix
-        ];
+      homeConfigurations = {
+        "syn@thickpad" = mkHome "x86_64-linux" ./users/syn/home.nix;
+        "syn@lenowo" = mkHome "x86_64-linux" ./users/syn/home.nix;
       };
+      nixosModules.default = ./nixosModules;
+      homeManagerModules.default = ./homeManagerModules;
     };
-    homeConfigurations = {
-      ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit userSettings;
-          inherit pkgs-unstable;
-        };
-        modules = [ stylix.homeManagerModules.stylix ./users/default.nix];
-      };
-    };
-  };
 }
