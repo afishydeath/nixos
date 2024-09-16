@@ -12,5 +12,5 @@
   };
 
   stylix = userSettings.stylixSettings;
-  home.sessionVariables.EDITOR = "v";
+  home.sessionVariables.EDITOR = "lvim";
 }

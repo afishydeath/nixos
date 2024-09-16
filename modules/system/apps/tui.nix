@@ -22,7 +22,6 @@
       xsel
       wl-clipboard-rs
       ripgrep
-      sops
     ];
 
     programs.zsh = {
