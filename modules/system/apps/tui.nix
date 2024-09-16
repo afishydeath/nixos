@@ -20,7 +20,7 @@
       gnumake
       mdr
       xsel
-      wl-copy
+      wl-clipboard-rs
     ];
 
     programs.zsh = {
