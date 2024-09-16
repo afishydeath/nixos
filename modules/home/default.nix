@@ -12,4 +12,5 @@
   };
 
   stylix = userSettings.stylixSettings;
+  home.sessionVariables.EDITOR = "v";
 }
