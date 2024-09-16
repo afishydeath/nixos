@@ -19,6 +19,8 @@
       bottom
       gnumake
       mdr
+      xsel
+      wl-copy
     ];
 
     programs.zsh = {
