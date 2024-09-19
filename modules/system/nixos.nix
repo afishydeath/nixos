@@ -10,6 +10,8 @@
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
+    #service for firmware updates
+    services.fwupd.enable = true;
 
     # Enable CUPS to print documents.
     services.printing.enable = true;
