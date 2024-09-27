@@ -13,6 +13,7 @@
       sgt-puzzles
       vial
       vlc
+      inkscape
     ];
     
     programs.firefox.enable = true;
