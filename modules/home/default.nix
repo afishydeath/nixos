@@ -6,6 +6,7 @@
   imports = [
     ./tui/tui.nix
     ./gui.nix
+    ./scripts
   ];
 
   home = {
