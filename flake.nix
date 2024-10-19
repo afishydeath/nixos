@@ -74,6 +74,18 @@
           stylix.nixosModules.stylix
         ];
       };
+      chromie = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          system = systemSettings.system;
+          inherit systemSettings;
+          inherit userSettings;
+          hostname = "chromie";
+        };
+        modules = [
+          ./hosts/default.nix
+          stylix.nixosModules.stylix
+        ];
+      };
     };
     homeConfigurations = {
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
