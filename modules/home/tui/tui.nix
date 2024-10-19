@@ -14,7 +14,7 @@
 
   config.home.tui = lib.mkIf config.home.tui.enable {
     dev.enable = lib.mkDefault true;
-    nixvim.enable = lib.mkDefault true;
+    jeezyvim.enable = lib.mkDefault true;
     shell.enable = lib.mkDefault true;
   };
 

@@ -16,6 +16,7 @@
     };
     stylix.url = "github:danth/stylix/release-24.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    jeezyvim.url = "github:LGUG2Z/JeezyVim";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nixos-wsl, ... }@inputs:
