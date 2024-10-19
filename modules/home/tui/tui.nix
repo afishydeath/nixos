@@ -4,6 +4,7 @@
   imports = [
     ./dev/dev.nix
     ./nixvim/nixvim.nix
+    ./jeezyvim
     ./shell/shell.nix
   ];
 

@@ -19,9 +19,14 @@
     jeezyvim.url = "github:LGUG2Z/JeezyVim";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nixos-wsl, ... }@inputs:
-
-  let
+  outputs = {
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    stylix,
+    nixos-wsl,
+    ...
+  } @ inputs: let
     systemSettings = {
       system = "x86_64-linux";
       timezone = "Australia/Sydney";
@@ -45,19 +50,20 @@
         };
       };
     };
-    
-    pkgs = import nixpkgs { system = systemSettings.system; };
-    pkgs-unstable = import nixpkgs-unstable { system = systemSettings.system; };
 
-  in
-  {
+    pkgs = import nixpkgs {
+      inherit (systemSettings) system;
+      overlays = [inputs.jeezyvim.overlays.default];
+    };
+    pkgs-unstable = import nixpkgs-unstable {inherit (systemSettings) system;};
+  in {
     nixosConfigurations = {
       thickpad = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          system = systemSettings.system;
+          inherit (systemSettings) system;
           inherit systemSettings;
           inherit userSettings;
-          hostname = "thickpad"; 
+          hostname = "thickpad";
         };
         modules = [
           ./hosts/default.nix
@@ -66,7 +72,7 @@
       };
       lenowo = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          system = systemSettings.system;
+          inherit (systemSettings) system;
           inherit systemSettings;
           inherit userSettings;
           hostname = "lenowo";
@@ -78,7 +84,7 @@
       };
       chromie = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          system = systemSettings.system;
+          inherit (systemSettings) system;
           inherit systemSettings;
           inherit userSettings;
           hostname = "chromie";
@@ -90,12 +96,12 @@
       };
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          system = systemSettings.system;
+          inherit (systemSettings) system;
           inherit systemSettings;
           inherit userSettings;
           hostname = "wsl";
         };
-        system = systemSettings.system;
+        inherit (systemSettings) system;
         modules = [
           nixos-wsl.nixosModules.default
           ./hosts/default.nix
@@ -111,7 +117,7 @@
           inherit userSettings;
           inherit pkgs-unstable;
         };
-        modules = [ stylix.homeManagerModules.stylix ./users/default.nix];
+        modules = [stylix.homeManagerModules.stylix ./users/default.nix];
       };
     };
   };

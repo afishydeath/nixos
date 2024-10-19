@@ -1,6 +1,8 @@
-{ lib, userSettings, ... }:
-
 {
+  lib,
+  userSettings,
+  ...
+}: {
   imports = [
     ./tui/tui.nix
     ./gui.nix
@@ -12,5 +14,5 @@
   };
 
   stylix = userSettings.stylixSettings;
-  home.sessionVariables.EDITOR = "lvim";
+  home.sessionVariables.EDITOR = "nvim";
 }

@@ -1,6 +1,8 @@
-{  config, lib, ... }:
-
 {
+  config,
+  lib,
+  ...
+}: {
   options = {
     home.tui.shell.zsh.enable = lib.mkEnableOption "zsh config enable";
   };
@@ -14,16 +16,15 @@
       shellAliases = {
         ls = "exa -lh --icons";
         la = "ls -a";
-        v = "lvim";
+        v = "nvim";
         gg = "lazygit";
         cd = "z";
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" "starship" "direnv" ];
+        plugins = ["git" "thefuck" "starship" "direnv"];
         theme = "starship";
       };
     };
-
   };
 }
