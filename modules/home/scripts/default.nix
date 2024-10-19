@@ -1,5 +1,5 @@
-_: let
-  editFromWindows = import ./editFromWindows.nix;
+{pkgs, ...}: let
+  editFromWindows = import ./editFromWindows.nix {inherit pkgs;};
 in {
   home.packages = [
     editFromWindows
