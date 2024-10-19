@@ -15,9 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix/release-24.05";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, stylix, nixos-wsl, ... }@inputs:
 
   let
     systemSettings = {
@@ -82,6 +83,20 @@
           hostname = "chromie";
         };
         modules = [
+          ./hosts/default.nix
+          stylix.nixosModules.stylix
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          system = systemSettings.system;
+          inherit systemSettings;
+          inherit userSettings;
+          hostname = "wsl";
+        };
+        system = systemSettings.system;
+        modules = [
+          nixos-wsl.nixosModules.default;
           ./hosts/default.nix
           stylix.nixosModules.stylix
         ];
