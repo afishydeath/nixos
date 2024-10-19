@@ -96,7 +96,7 @@
         };
         system = systemSettings.system;
         modules = [
-          nixos-wsl.nixosModules.default;
+          nixos-wsl.nixosModules.default
           ./hosts/default.nix
           stylix.nixosModules.stylix
         ];
