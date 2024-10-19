@@ -12,6 +12,7 @@
   system.stateVersion = "24.05";
   wsl.enable = true;
   wsl.defaultUser = "syn";
+  wsl.startMenuLaunchers = true;
 
   tui.enable = true;
   gui.enable = true;
