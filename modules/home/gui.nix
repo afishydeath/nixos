@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -7,5 +7,8 @@
 
   config = lib.mkIf config.home.gui.enable {
     programs.kitty.enable = true;
+    home.packages = with pkgs; [
+      qutebrowser
+    ];
   };
 }
