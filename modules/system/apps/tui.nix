@@ -1,10 +1,13 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     tui.enable = lib.mkEnableOption "enables tui apps";
   };
-  
+
   config = lib.mkIf config.tui.enable {
     environment.systemPackages = with pkgs; [
       bat
@@ -22,18 +25,16 @@
       xsel
       wl-clipboard-rs
       ripgrep
+      fd
     ];
 
-    programs.zsh = {
-      enable = true;
-    };
-
-    programs.ssh.startAgent = true;
-
-    programs.nh = {
-      enable = true;
-      flake = "/home/syn/nixos";
+    programs = {
+      zsh.enable = true;
+      ssh.startAgent = true;
+      nh = {
+        enable = true;
+        flake = "/home/syn/nixos/";
+      };
     };
   };
-
 }
