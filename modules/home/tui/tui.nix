@@ -1,6 +1,8 @@
-{ lib, config, ... }:
-
 {
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./dev/dev.nix
     ./nixvim/nixvim.nix
@@ -12,11 +14,9 @@
     home.tui.enable = lib.mkEnableOption "tui config enable";
   };
 
-
   config.home.tui = lib.mkIf config.home.tui.enable {
     dev.enable = lib.mkDefault true;
     jeezyvim.enable = lib.mkDefault true;
     shell.enable = lib.mkDefault true;
   };
-
 }

@@ -9,6 +9,7 @@
     programs.kitty.enable = true;
     home.packages = with pkgs; [
       qutebrowser
+      wezterm
     ];
   };
 }
