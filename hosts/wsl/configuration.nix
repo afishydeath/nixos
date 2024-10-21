@@ -11,7 +11,6 @@
     enable = true;
     defaultUser = "syn";
     startMenuLaunchers = true;
-    useWindowsDriver = true;
   };
 
   tui.enable = true;
