@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -14,9 +15,14 @@
     home.tui.enable = lib.mkEnableOption "tui config enable";
   };
 
-  config.home.tui = lib.mkIf config.home.tui.enable {
-    dev.enable = lib.mkDefault true;
-    jeezyvim.enable = lib.mkDefault true;
-    shell.enable = lib.mkDefault true;
+  config = lib.mkIf config.home.tui.enable {
+    home.tui = {
+      dev.enable = lib.mkDefault true;
+      jeezyvim.enable = lib.mkDefault true;
+      shell.enable = lib.mkDefault true;
+    };
+    home.packages = with pkgs; [
+      unzip
+    ];
   };
 }
