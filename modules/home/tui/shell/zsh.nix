@@ -16,6 +16,7 @@
       shellAliases = {
         ls = "exa -lh --icons";
         la = "ls -a";
+        tree = "ls --tree";
         v = "nvim";
         gg = "lazygit";
         cd = "z";
