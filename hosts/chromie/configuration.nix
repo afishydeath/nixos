@@ -14,7 +14,6 @@
   nixos.enable = true;
 
   tui.enable = true;
-  gaming.enable = true;
   gui.enable = true;
   vms.enable = true;
   
