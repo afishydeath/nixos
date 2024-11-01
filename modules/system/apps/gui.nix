@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     gui.enable = lib.mkEnableOption "enables gui apps";
   };
@@ -14,10 +17,8 @@
       vial
       vlc
       inkscape
+      gparted
     ];
-    
     programs.firefox.enable = true;
-
   };
-
 }
