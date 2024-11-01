@@ -28,6 +28,7 @@
       fd
       exfat
       exfatprogs
+      ntfs3g
     ];
 
     programs = {
