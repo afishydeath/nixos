@@ -14,6 +14,7 @@
       qutebrowser
       wezterm
       clementine
+      nicotine
     ];
   };
 }
