@@ -27,6 +27,7 @@
       ripgrep
       fd
       exfat
+      exfatprogs
     ];
 
     programs = {
