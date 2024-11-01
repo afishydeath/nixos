@@ -15,6 +15,7 @@
       wezterm
       clementine
       nicotine-plus
+      gparted
     ];
   };
 }
