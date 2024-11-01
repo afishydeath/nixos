@@ -26,6 +26,7 @@
       wl-clipboard-rs
       ripgrep
       fd
+      exfat
     ];
 
     programs = {
