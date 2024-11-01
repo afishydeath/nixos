@@ -1,6 +1,9 @@
-{ lib, config, pkgs, ... }:
-
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   options = {
     home.gui.enable = lib.mkEnableOption "enable gui apps";
   };
@@ -10,6 +13,7 @@
     home.packages = with pkgs; [
       qutebrowser
       wezterm
+      clementine
     ];
   };
 }
