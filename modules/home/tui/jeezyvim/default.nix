@@ -19,6 +19,11 @@
             }
             {
               mode = "n";
+              action = "O";
+              key = "O";
+            }
+            {
+              mode = "n";
               action = "<cmd>w<CR>";
               key = "<leader>w";
             }
