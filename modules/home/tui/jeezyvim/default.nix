@@ -35,6 +35,7 @@
           ];
           plugins = {
             treesitter-context.enable = false;
+            lsp-signature.enable = true;
           };
         };
       })
